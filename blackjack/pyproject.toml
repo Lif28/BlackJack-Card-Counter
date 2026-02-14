@@ -1,9 +1,9 @@
 # This project was generated with 0.3.26 using template: https://github.com/beeware/briefcase-template @ v0.3.26
 [tool.briefcase]
 project_name = "BlackJack"
-bundle = "com.example"
+bundle = "com.lif28.blackjack"
 version = "1.0.0"
-url = "https://example.com/blackjack"
+url = "https://github.com/tuo-username/blackjack-card-counter"
 license.file = "LICENSE"
 author = "Lif28"
 author_email = "..."
@@ -13,7 +13,9 @@ author_email = "..."
 formal_name = "BlackJack"
 description = "Train your mind counting cards."
 icon = "src/blackjack/resources/icon"
-long_description = """More details about the app should go here.
+long_description = """
+Android trainer for Blackjack card counting using the Hi-Lo method. 
+Practice at your own pace or challenge yourself with timed mode.
 """
 sources = [
     "src/blackjack",
@@ -40,7 +42,7 @@ requires = [
     "toga-gtk~=0.5.0",
     # PyGObject 3.52.1 enforces a requirement on libgirepository-2.0-dev. This library
     # isn't available on Debian 12/Ubuntu 22.04. If you don't need to support those (or
-    # older) releases, you can remove this version pin. See beeware/toga#3143.
+    # older) releases, you can remove this  pin. See beeware/toga#3143.
     "pygobject < 3.52.1",
 ]
 
