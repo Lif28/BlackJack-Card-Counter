@@ -1,5 +1,8 @@
 """
 Train your mind counting cards.
+
+Copyright (c) 2026, Lif28
+Licensed under the MIT License - see LICENSE file for details
 """
 
 import toga
