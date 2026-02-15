@@ -1,6 +1,6 @@
 # This project was generated with 0.3.26 using template: https://github.com/beeware/briefcase-template @ v0.3.26
 [tool.briefcase]
-project_name = "BlackJack"
+project_name = "BlackJack Card Counter"
 bundle = "com.lif28.blackjack"
 version = "1.0.0"
 url = "https://github.com/tuo-username/blackjack-card-counter"
@@ -10,7 +10,7 @@ author_email = "..."
 
 
 [tool.briefcase.app.blackjack]
-formal_name = "BlackJack"
+formal_name = "BlackJack Card Counter"
 description = "Train your mind counting cards."
 icon = "src/blackjack/resources/icon"
 long_description = """
