@@ -183,6 +183,7 @@ class BlackJack(toga.App):
         self.image_view.image = self.card_image
     
     def timed_mode(self, widget):
+        print(self.running_count)
         self.main_box = toga.Box(style=Pack(direction=COLUMN, margin=10, align_items=CENTER, background_color='#ffffff'))
 
         # Important variables for start_timed_mode
@@ -236,10 +237,16 @@ class BlackJack(toga.App):
                 # Re-adds the card
                 if self.image_view not in self.main_box.children:
                     self.main_box.insert(0, self.image_view)
+            
+            # Waits 
+            await asyncio.sleep(self.speed_slider.value)
 
+            # Counts the card 
             current_card = self.deck[self.current_index]
             rank = current_card[:-1]
             self.running_count += self.HI_LO_VALUES[rank]
+            
+            self.feedback_label.text = ""  
 
             # Asks running count
             if self.current_index in self.choices:
@@ -274,6 +281,11 @@ class BlackJack(toga.App):
                 self.input_box.add(submit_button)
                 self.main_box.add(self.input_box)
                 
+                # Adds the new card
+                next_card = self.deck[self.current_index]
+                self.card_image = toga.Image(f"cards/{next_card}.jpg")
+                self.image_view.image = self.card_image
+
                 self.is_running = False
                 continue 
 
@@ -286,9 +298,7 @@ class BlackJack(toga.App):
             # New card
             next_card = self.deck[self.current_index]
             self.card_image = toga.Image(f"cards/{next_card}.jpg")
-            self.image_view.image = self.card_image
-            
-            await asyncio.sleep(self.speed_slider.value)  
+            self.image_view.image = self.card_image 
 
             # Remembers the speed also after the question about the running count
             self.speed = self.speed_slider.value
