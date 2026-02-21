@@ -240,15 +240,15 @@ class BlackJack(toga.App):
             current_card = self.deck[self.current_index]
             rank = current_card[:-1]
             self.running_count += self.HI_LO_VALUES[rank]
-            
-            self.current_index += 1
-
-            if self.current_index > 51:
-                random.shuffle(self.deck)
-                self.current_index, self.running_count = 0, 0
 
             # Asks running count
             if self.current_index in self.choices:
+                self.current_index += 1
+
+                if self.current_index > 51:
+                    random.shuffle(self.deck)
+                    self.current_index, self.running_count = 0, 0
+
                 self.main_box.remove(self.image_view)
                 self.main_box.remove(self.speed_slider)
                 self.main_box.remove(self.stop_button)
@@ -276,7 +276,13 @@ class BlackJack(toga.App):
                 
                 self.is_running = False
                 continue 
+
+            self.current_index += 1
             
+            if self.current_index > 51:
+                random.shuffle(self.deck)
+                self.current_index, self.running_count = 0, 0
+
             # New card
             next_card = self.deck[self.current_index]
             self.card_image = toga.Image(f"cards/{next_card}.jpg")
