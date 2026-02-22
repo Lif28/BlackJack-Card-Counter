@@ -131,6 +131,7 @@ class BlackJack(toga.App):
 
             self.main_box.remove(self.input_box)
             self.input_box = None
+
         else:
             self.feedback_label.text = ""           
 
@@ -139,40 +140,40 @@ class BlackJack(toga.App):
             rank = current_card[:-1]
             self.running_count += self.HI_LO_VALUES[rank]
         
-        self.current_index += 1
+            self.current_index += 1
 
-        # Re-shuffles the deck
-        if self.current_index > 51:
-            random.shuffle(self.deck)
-            self.current_index, self.running_count = 0,0
+            # Re-shuffles the deck
+            if self.current_index > 51:
+                random.shuffle(self.deck)
+                self.current_index = 0
 
-        # Asks running count
-        if self.current_index in self.choices:
-            # Hides the card
-            self.main_box.remove(self.image_view)
+            # Asks running count
+            if self.current_index in self.choices:
+                # Hides the card
+                self.main_box.remove(self.image_view)
 
-            # Removes the button to add it later
-            self.main_box.remove(self.next_button)
+                # Removes the button to add it later
+                self.main_box.remove(self.next_button)
 
-            title = toga.Label(
-                "What's the running count?",
-                style=Pack(
-                    margin=10,
-                    font_size=16,
-                    font_weight='bold',
-                    text_align=CENTER
+                title = toga.Label(
+                    "What's the running count?",
+                    style=Pack(
+                        margin=10,
+                        font_size=16,
+                        font_weight='bold',
+                        text_align=CENTER
+                    )
                 )
-            )
 
-            self.input = toga.TextInput(style=Pack(width=150, margin=10, font_size=16))
-            self.input_box = toga.Box(style=Pack(direction=COLUMN, margin=10, align_items=CENTER))
+                self.input = toga.TextInput(style=Pack(width=150, margin=10, font_size=16))
+                self.input_box = toga.Box(style=Pack(direction=COLUMN, margin=10, align_items=CENTER))
 
-            self.input_box.add(title)
-            self.input_box.add(self.input)
-            self.main_box.add(self.input_box)
-            self.main_box.add(self.next_button) 
-            # Doesn't show the next card because you have to insert the running count first
-            return 
+                self.input_box.add(title)
+                self.input_box.add(self.input)
+                self.main_box.add(self.input_box)
+                self.main_box.add(self.next_button) 
+                # Doesn't show the next card because you have to insert the running count first
+                return 
         
         if self.image_view not in self.main_box.children:
             self.main_box.insert(0, self.image_view)
@@ -254,7 +255,7 @@ class BlackJack(toga.App):
 
                 if self.current_index > 51:
                     random.shuffle(self.deck)
-                    self.current_index, self.running_count = 0, 0
+                    self.current_index = 0
 
                 self.main_box.remove(self.image_view)
                 self.main_box.remove(self.speed_slider)
@@ -272,7 +273,7 @@ class BlackJack(toga.App):
                 submit_button = toga.Button(
                     "Submit",
                     on_press=self.check_count_timed_mode,
-                    style=Pack(margin=5, width=150)
+                    style=Pack(margin=5, width=150) 
                 )
                 
                 # main box
@@ -293,7 +294,7 @@ class BlackJack(toga.App):
             
             if self.current_index > 51:
                 random.shuffle(self.deck)
-                self.current_index, self.running_count = 0, 0
+                self.current_index = 0
 
             # New card
             next_card = self.deck[self.current_index]
