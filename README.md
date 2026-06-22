@@ -6,7 +6,7 @@ Train your Blackjack card counting skills using the Hi-Lo method. Available for 
 
 <p align="center">
   <br>
-  <img width="500" height="500" alt="logo" src="https://github.com/user-attachments/assets/7340a8e7-b242-4b7c-89d9-15c156945d38" /><br>
+  <img width="500" height="500" alt="logo" src="blackjack/src/blackjack/resources/logo.png" /><br>
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Android-lightgrey.svg" alt="Platform">
   <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python">
